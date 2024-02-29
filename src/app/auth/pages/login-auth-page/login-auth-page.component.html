@@ -1,0 +1,63 @@
+<div class="text-center mb-4">
+  <h6 class="font-bold text-[#063970] text-xl">Inicio de Sesion</h6>
+</div>
+<hr class="border-gray-200" />
+@if (this.loginError == true) {
+  <div class="items-center flex justify-center">
+    <h6 class="font-semibold text-red-500 text-lg">
+      <i class="fas fa-exclamation-circle mr-1"></i>
+      Error en usuario o contraseña
+    </h6>
+  </div>
+}
+<form
+  class="space-y-5"
+  [formGroup]="myForm"
+  (ngSubmit)="onSave()"
+  autocomplete="off"
+>
+  <div>
+    <div class="text-center mb-4 pt-4">
+      <h6 class="font-semibold text-[#063970] text-xl">Correo</h6>
+    </div>
+
+    <input
+      id="email"
+      formControlName="email"
+      class="block w-full py-3 px-3 mt-2 text-gray-800 appearance-none border-2 border-gray-300 focus:text-gray-500 focus:outline-none focus:border-gray-700 rounded-md"
+    />
+    @if (
+      myForm.controls["email"].touched && myForm.controls["email"].value === ""
+    ) {
+      <p class="text-red-500">*Este campo es obligatorio</p>
+    }
+  </div>
+
+  <div class="relative w-full">
+    <div class="text-center mb-4">
+      <h6 class="font-semibold text-[#063970] text-xl">Contraseña</h6>
+    </div>
+    <input
+      :type="password"
+      id="password"
+      formControlName="password"
+      class="block w-full py-3 px-3 mt-2 mb-4 text-gray-800 appearance-none border-2 border-gray-300 focus:text-gray-500 focus:outline-none focus:border-gray-700 rounded-md"
+    />
+    @if (
+      myForm.controls["password"].touched &&
+      myForm.controls["password"].value === ""
+    ) {
+      <p class="text-red-500">*Este campo es obligatorio</p>
+    }
+    <div
+      class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+    ></div>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full py-3 mt-10 bg-[#063970] rounded-md font-medium text-white uppercase focus:outline-none hover:shadow-none"
+  >
+    Login
+  </button>
+</form>
