@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutAuthComponent } from './pages/layout-Auth-page/layout-auth-page.component';
 import { LoginAuthComponent } from './pages/login-auth-page/login-auth-page.component';
 import { sesionGuard } from '../guards/auth.guard';
+import { NewUserAuthComponent } from './pages/newUser-auth-page/newUser-auth-page.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginAuthComponent,
+      },
+      {
+        path: 'newuser',
+        component: NewUserAuthComponent,
       },
       {
         path: '**',
